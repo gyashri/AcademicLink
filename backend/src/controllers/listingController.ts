@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { Listing } from '../models/Listing';
 import { AuthRequest } from '../types';
 import { ApiError } from '../utils/apiError';
-import { uploadToS3, getSignedDownloadUrl, deleteFromS3 } from '../services/s3Service';
+import { uploadToS3, getSignedDownloadUrl, deleteFromS3 } from '../services/storageService';
 import { checkAcademicIntegrity, generateStudyKit } from '../services/aiService';
 import pdfParse from 'pdf-parse';
 

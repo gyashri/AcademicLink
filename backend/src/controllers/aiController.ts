@@ -4,7 +4,7 @@ import { Order } from '../models/Order';
 import { AuthRequest } from '../types';
 import { ApiError } from '../utils/apiError';
 import { extractBookInfo, chatWithNotes } from '../services/aiService';
-import { getSignedDownloadUrl } from '../services/s3Service';
+import { getSignedDownloadUrl } from '../services/storageService';
 
 export const ocrExtract = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
   try {

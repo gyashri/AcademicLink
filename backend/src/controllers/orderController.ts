@@ -6,7 +6,7 @@ import { Notification } from '../models/Notification';
 import { AuthRequest } from '../types';
 import { ApiError } from '../utils/apiError';
 import { createRazorpayOrder, verifyRazorpayPayment, refundPayment } from '../services/paymentService';
-import { getSignedDownloadUrl } from '../services/s3Service';
+import { getSignedDownloadUrl } from '../services/storageService';
 
 export const createOrder = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
   try {

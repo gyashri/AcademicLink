@@ -23,7 +23,10 @@
       "Bash(dir:*)",
       "Bash(\"c:\\\\Users\\\\Bhagyashri\\\\Desktop\\\\AcademicLink\\\\backend\\\\.env.example\" << 'EOF'\n# Server\nPORT=5000\nNODE_ENV=development\n\n# MongoDB\nMONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority\n\n# JWT\nJWT_SECRET=your-jwt-secret-key-here\nJWT_REFRESH_SECRET=your-refresh-secret-key-here\nJWT_EXPIRES_IN=15m\nJWT_REFRESH_EXPIRES_IN=7d\n\n# Email \\(Nodemailer\\)\nSMTP_HOST=smtp.gmail.com\nSMTP_PORT=587\nSMTP_USER=your-email@gmail.com\nSMTP_PASS=your-app-password-here\n\n# AWS S3\nAWS_ACCESS_KEY_ID=your-aws-access-key\nAWS_SECRET_ACCESS_KEY=your-aws-secret-key\nAWS_REGION=ap-south-1\nAWS_S3_BUCKET=your-bucket-name\n\n# Razorpay \\(get test keys from https://dashboard.razorpay.com/app/keys\\)\nRAZORPAY_KEY_ID=rzp_test_xxxxx\nRAZORPAY_KEY_SECRET=your-razorpay-secret\n\n# Gemini AI\nGEMINI_API_KEY=your-gemini-api-key\n\n# Frontend URL\nCLIENT_URL=http://localhost:3000\nEOF)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(\"c:\\\\Users\\\\Bhagyashri\\\\Desktop\\\\AcademicLink\\\\frontend\\\\.env.local\" << 'EOF'\n# Backend API URL\n# Development: http://localhost:5000/api\n# Production: https://your-backend-domain.com/api\nNEXT_PUBLIC_API_URL=http://localhost:5000/api\n\n# Stripe \\(uncomment when needed\\)\n# NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxxxx\n\n# Socket.io URL \\(uncomment when implemented\\)\n# NEXT_PUBLIC_SOCKET_URL=http://localhost:5000\nEOF)",
+      "Bash(npm run build:*)"
     ]
   }
 }
