@@ -1,0 +1,78 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1a1a2e;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #e94560;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-create {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  background: #e94560;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-create:hover { background: #c73652; }
+
+.user-name {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
+.btn-logout {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #aaa;
+  border: 1px solid #444;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-logout:hover { color: #e94560; border-color: #e94560; }
+
+.btn-auth {
+  padding: 0.5rem 1rem;
+  color: #ccc;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: color 0.2s;
+}
+
+.btn-auth:hover { color: #fff; }
+
+.btn-primary {
+  background: #e94560;
+  color: #fff !important;
+}

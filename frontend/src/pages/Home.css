@@ -1,0 +1,136 @@
+.home {
+  min-height: calc(100vh - 70px);
+}
+
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #eee;
+  margin: 0 0 0.5rem 0;
+}
+
+.hero h1 span { color: #e94560; }
+
+.hero > p {
+  color: #888;
+  margin: 0 0 2rem 0;
+  font-size: 1rem;
+}
+
+.search-bar {
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+}
+
+.search-bar svg { color: #888; flex-shrink: 0; }
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-bar input::placeholder { color: #666; }
+
+.filters {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  padding: 0.4rem 0.9rem;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 20px;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover { border-color: #e94560; color: #e94560; }
+
+.filter-btn.active {
+  background: #e94560;
+  border-color: #e94560;
+  color: #fff;
+}
+
+.dept-select {
+  padding: 0.4rem 0.8rem;
+  background: #1a1a2e;
+  border: 1px solid #333;
+  border-radius: 20px;
+  color: #ccc;
+  font-size: 0.8rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.products-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.loading, .empty {
+  text-align: center;
+  color: #888;
+  padding: 4rem 2rem;
+}
+
+.empty h3 { color: #eee; margin-bottom: 0.5rem; }
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  color: #888;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background: #16213e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.pagination button:hover { border-color: #e94560; }
+.pagination button:disabled { opacity: 0.4; cursor: default; }
