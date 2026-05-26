@@ -4,6 +4,7 @@
   "description": "AcademicLink - Student-to-student academic marketplace API",
   "main": "dist/server.js",
   "scripts": {
+    "seed": "ts-node src/seed.ts",
     "dev": "nodemon --exec ts-node src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js"
