@@ -29,20 +29,31 @@ import adminRoutes from './routes/adminRoutes';
 const app = express();
 const httpServer = createServer(app);
 
-const allowedOrigins = process.env.CLIENT_URL
+const explicitOrigins = process.env.CLIENT_URL
   ? process.env.CLIENT_URL.split(',').map((s) => s.trim())
   : ['http://localhost:3000'];
+
+const corsOrigin = (
+  origin: string | undefined,
+  callback: (err: Error | null, allow?: boolean) => void
+) => {
+  if (!origin || explicitOrigins.includes(origin) || origin.endsWith('.vercel.app') || origin.includes('localhost')) {
+    callback(null, true);
+  } else {
+    callback(new Error(`Origin ${origin} not allowed by CORS`));
+  }
+};
 
 // Socket.io setup
 const io = new SocketIOServer(httpServer, {
   cors: {
-    origin: allowedOrigins,
+    origin: corsOrigin,
     methods: ['GET', 'POST'],
   },
 });
 
 // Middleware
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({ origin: corsOrigin, credentials: true }));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
