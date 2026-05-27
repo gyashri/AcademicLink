@@ -33,29 +33,29 @@ export const register = async (req: Request, res: Response, next: NextFunction):
       throw new ApiError(400, 'Password must be at least 8 characters.');
     }
 
-    // Extract domain from email
     const domain = email.split('@')[1];
     if (!domain) {
       throw new ApiError(400, 'Invalid email format.');
     }
 
-    // Find university by email domain
+    console.log('Looking up domain:', domain);
     const university = await University.findOne({ domain });
     if (!university) {
       throw new ApiError(400, 'Your email domain is not associated with a registered university. Use your university email.');
     }
 
-    // Check if user already exists
+    console.log('University found:', university._id);
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       throw new ApiError(409, 'An account with this email already exists.');
     }
 
-    // Hash password and generate OTP
+    console.log('Hashing password...');
     const passwordHash = await bcrypt.hash(password, 12);
     const otp = generateOTP();
-    const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+    const otpExpiresAt = new Date(Date.now() + 10 * 60 * 1000);
 
+    console.log('Creating user...');
     const user = await User.create({
       name,
       email,
@@ -65,7 +65,7 @@ export const register = async (req: Request, res: Response, next: NextFunction):
       otpExpiresAt,
     });
 
-    // Send OTP email (non-blocking — account created even if email fails)
+    console.log('User created:', user._id);
     try {
       await sendOTPEmail(email, otp);
     } catch (emailErr) {
@@ -78,6 +78,7 @@ export const register = async (req: Request, res: Response, next: NextFunction):
       data: { userId: user._id, email: user.email },
     });
   } catch (error) {
+    console.error('Register error:', error);
     next(error);
   }
 };

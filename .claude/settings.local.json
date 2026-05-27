@@ -26,7 +26,12 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(\"c:\\\\Users\\\\Bhagyashri\\\\Desktop\\\\AcademicLink\\\\frontend\\\\.env.local\" << 'EOF'\n# Backend API URL\n# Development: http://localhost:5000/api\n# Production: https://your-backend-domain.com/api\nNEXT_PUBLIC_API_URL=http://localhost:5000/api\n\n# Stripe \\(uncomment when needed\\)\n# NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxxxx\n\n# Socket.io URL \\(uncomment when implemented\\)\n# NEXT_PUBLIC_SOCKET_URL=http://localhost:5000\nEOF)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(gh:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(curl:*)"
     ]
   }
 }

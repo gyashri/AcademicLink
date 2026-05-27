@@ -25,6 +25,7 @@ const seedUniversities = async () => {
     { name: 'IIT Madras', domain: 'iitm.ac.in', departments: ['Computer Science', 'Electrical', 'Civil'] },
     { name: 'VIT', domain: 'vit.ac.in', departments: ['Engineering', 'Science', 'Management'] },
     { name: 'SRM University', domain: 'srmist.edu.in', departments: ['Engineering', 'Science', 'Management'] },
+    { name: 'NIT Jamshedpur', domain: 'nitjsr.ac.in', departments: ['Engineering', 'Science', 'Management', 'Computer Science'] },
   ];
 
   for (const u of universities) {

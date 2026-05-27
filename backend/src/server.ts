@@ -60,9 +60,25 @@ app.use(express.urlencoded({ extended: true }));
 // Serve local uploads in development
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
-// Health check
-app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+// Debug
+app.post('/api/debug/register', async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    if (!name || !email || !password) return res.json({ step: 1, error: 'Missing fields' });
+
+    const domain = email.split('@')[1];
+    const uni = await (await import('./models/University')).University.findOne({ domain });
+    if (!uni) return res.json({ step: 2, domain, error: 'No university found' });
+
+    const existing = await (await import('./models/User')).User.findOne({ email });
+    if (existing) return res.json({ step: 3, error: 'User exists' });
+
+    const bcrypt = await import('bcryptjs');
+    const hash = await bcrypt.hash(password, 12);
+    return res.json({ step: 4, hash: hash.substring(0, 10) + '...', uniId: uni._id });
+  } catch (e: any) {
+    return res.json({ error: e?.message || String(e), stack: e?.stack });
+  }
 });
 
 // API Routes
