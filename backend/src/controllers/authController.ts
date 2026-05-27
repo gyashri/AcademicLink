@@ -65,8 +65,12 @@ export const register = async (req: Request, res: Response, next: NextFunction):
       otpExpiresAt,
     });
 
-    // Send OTP email
-    await sendOTPEmail(email, otp);
+    // Send OTP email (non-blocking — account created even if email fails)
+    try {
+      await sendOTPEmail(email, otp);
+    } catch (emailErr) {
+      console.error('Failed to send OTP email:', emailErr);
+    }
 
     res.status(201).json({
       success: true,
